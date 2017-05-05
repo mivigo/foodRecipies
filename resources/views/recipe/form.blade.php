@@ -1,58 +1,30 @@
 {{--Temporary--}}
 {{--{!! Form::hidden('user_id',1) !!}--}}
 
-<div class="form-group">
-    {!! Form::label('title', 'Title: ') !!}
-    {!! Form::text('title', null, ['class' =>'form-control']) !!}
+<div class="col-md-12">
+    <div class="form-group">
+        {!! Form::label('title', 'Title: ') !!}
+        {!! Form::text('title', null, ['class' =>'form-control']) !!}
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        {!! Form::label('body', 'Body: ') !!}
+        {!! Form::textarea('body', null, ['class' =>'form-control']) !!}
+    </div>
 </div>
 
 <div class="form-group">
-    {!! Form::label('body', 'Body: ') !!}
-    {!! Form::textarea('body', null, ['class' =>'form-control']) !!}
-</div>
-
-{{--<div class="form-group">--}}
-    {{--{!! Form::label('tag_list', 'Tags: ') !!}--}}
-    {{--{!! Form::select('tag_list[]', $tags, null, ['id' => 'tag_list', 'class' =>'form-control', 'multiple']) !!}--}}
-{{--</div>--}}
-
-<div class="form-group">
-    {!! Form::submit($submitButtonText, ['class' =>'btn btn-primary form-control']) !!}
+    {!! Form::label('ingredient_list', 'Ingredients: ') !!}
+    {{ csrf_field() }}
+    {!! Form::select('ingredient_list[]',$ingredients, null, ['id' => 'ingredient_list', 'class' =>'form-control', 'multiple']) !!}
 </div>
 
 @section('footer')
     <script>
-        $('#tag_list').select2({
+        $('#ingredient_list').select2({
             placeholder: 'Chose a tag',
             tags: true
-//            ajax: {
-//                dataType: 'json',
-//                url: 'tags.json',
-//                processResults: function (data) {
-//                    return {results: data}
-//                }
-//            }
-
-//            ////////////////////////////////
-//            ajax: {
-//                dataType: 'json',
-//                url: 'api/tags',
-//                dellay: 250,
-//                data: function (params) {
-//                    return {
-//                        q: params.term
-//
-//                    }
-//                },
-//                prosessResults: function (data) {
-//                    return { results: data }
-//                }
-//            }
-//            data: [
-//                {id: 'one', text: 'One'},
-//                {id: 'two', text: 'Two'},
-//            ]
-//            /////////////////////////////////
         });
     </script>
 @endsection

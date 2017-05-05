@@ -20,6 +20,17 @@ class Ingredients extends Migration
             $table->timestamps();
         });
 
+        Schema::create('recipe_ingredients', function (Blueprint $table) {
+
+            $table->integer('recipe_id')->unsigned()->index();
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
+
+            $table->integer('ingredient_id')->unsigned()->index();
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade');
+
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -30,5 +41,6 @@ class Ingredients extends Migration
     public function down()
     {
         Schema::dropIfExists('ingredients');
+        Schema::dropIfExists('recipe_ingredients');
     }
 }

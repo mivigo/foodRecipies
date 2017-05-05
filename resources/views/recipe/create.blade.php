@@ -7,8 +7,9 @@
 
     {!! Form::model($recipe = new \App\Recipe, ['url' => 'recipes']) !!}
     {{ csrf_field() }}
-    @include ('recipe.form', ['submitButtonText' => 'Create Recipe'])
-
+        <div class ="row">
+            @include ('recipe.form', ['submitButtonText' => 'Create Recipe'])
+        </div>
     {!! Form::close() !!}
 
 {{--    @include('errors.list')--}}

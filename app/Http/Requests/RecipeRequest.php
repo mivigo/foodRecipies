@@ -24,7 +24,7 @@ class RecipeRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:2',
+            'title' => 'required|min:3',
             'body' => 'required',
         ];
     }

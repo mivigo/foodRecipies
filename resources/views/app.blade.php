@@ -24,6 +24,13 @@
 <script>
     $('#flash-overlay-modal').modal();
     $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
+    //clear and reset modal
+    $('body').on('hidden.bs.modal', '.modal', function () {
+        $(this).removeData('bs.modal');
+        $('.resp').html("");
+    });
+
 </script>
 
 @yield('footer')
